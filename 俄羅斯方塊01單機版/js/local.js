@@ -70,7 +70,6 @@ var Local = function() {
             }
             lines.push(line);
         }
-        alert(lines);
         return lines;
     }
     //隨機生成一個方塊
