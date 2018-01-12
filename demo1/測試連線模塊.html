@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>webscoket</title>
+</head>
+
+<body>
+    <h1>Test</h1>
+    <input id="sendTxt" type="text">
+    <button id="sendBtn">發送</button>
+    <div id="recv"></div>
+    <script type="text/javascript">
+    var webscoket = new WebSocket("ws://echo.websocket.org/");
+    webscoket.onopen = function() {
+        console.log('webscoket open');
+        document.getElementById("recv").innerHTML = "Connected";
+    }
+    webscoket.onclose = function() {
+        console.log('webscoket close');
+    }
+    webscoket.onmessage = function(e) {
+        console.log(e.data);
+        document.getElementById("recv").innerHTML = e.data;
+    }
+    document.getElementById("sendBtn").onclick = function() {
+        var txt = document.getElementById("sendTxt").value;
+        console.log(txt);
+        webscoket.send(txt);
+
+    }
+    </script>
+</body>
+
+</html>
