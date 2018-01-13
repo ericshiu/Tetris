@@ -27,7 +27,6 @@ Square.prototype.canRotate = function(isValid) {
             test[i][j] = this.rotates[d][i][j];
         }
     }
-    console.log(test);
     return isValid(this.origin, test);
 }
 Square.prototype.rotate = function(num) {
