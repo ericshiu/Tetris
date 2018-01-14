@@ -9,6 +9,7 @@
 
 <body>
     <div>請用方向鍵空格見操作: 上->旋轉 , 空格 ->墜落</div>
+    <div id="waiting"></div>
     <div class="square" id="local">
         <div>我的遊戲區</div>
         <div id="local_game" class="game"></div>
@@ -27,7 +28,7 @@
             <div>已用時:<span id="remote_time">0</span>s</div>
             <div>已用分:<span id="remote_score">0</span>分</div>
             <div id="remote_gameOver"></div>
-            <button id="down">down</button>
+            <!-- <button id="down">down</button>
             <button id="left">left</button>
             <button id="right">right</button>
             <button id="rotate">rotate</button>
@@ -39,12 +40,13 @@
             <button id="setTime">setTime</button>
             <button id="addScore">addScore</button>
             <button id="gameOver">gameOver</button>
-            <button id="addTailLines">addTailLines</button>
+            <button id="addTailLines">addTailLines</button> -->
         </div>
     </div>
 </body>
 
 </html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
 <script type="text/javascript" src="js/square.js"></script>
 <script type="text/javascript" src="js/squareFactory.js"></script>
 <script type="text/javascript" src="js/game.js"></script>

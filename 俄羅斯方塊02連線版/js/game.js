@@ -51,7 +51,7 @@ var Game = function() {
             }
             divs.push(div);
         }
-    }
+    };
 
     //刷新Div
     var refreshDiv = function(data, divs) {
@@ -66,7 +66,7 @@ var Game = function() {
                 }
             }
         }
-    }
+    };
     //檢測位置是否合法
     var check = function(pos, x, y) {
         if (pos.x + x < 0) {
@@ -82,7 +82,7 @@ var Game = function() {
         } else {
             return true;
         }
-    }
+    };
     //檢測數據是否合法
     var isValid = function(pos, data) {
         for (var i = 0; i < data.length; i++) {
@@ -95,27 +95,27 @@ var Game = function() {
             }
         }
         return true;
-    }
+    };
     //清除數據
     var clearData = function() {
         for (var i = 0; i < cur.data.length; i++) {
             for (var j = 0; j < cur.data[0].length; j++) {
                 if (check(cur.origin, i, j)) {
-                    gameData[cur.origin.x + i][cur.origin.y + j] = 0
+                    gameData[cur.origin.x + i][cur.origin.y + j] = 0;
                 }
             }
         }
-    }
+    };
     //設置
     var setData = function() {
         for (var i = 0; i < cur.data.length; i++) {
             for (var j = 0; j < cur.data[0].length; j++) {
                 if (check(cur.origin, i, j)) {
-                    gameData[cur.origin.x + i][cur.origin.y + j] = cur.data[i][j]
+                    gameData[cur.origin.x + i][cur.origin.y + j] = cur.data[i][j];
                 }
             }
         }
-    }
+    };
     //旋轉
     var rotate = function() {
         if (cur.canRotate(isValid)) {
@@ -124,7 +124,7 @@ var Game = function() {
             setData();
             refreshDiv(gameData, gameDivs);
         }
-    }
+    };
 
 
     //下移
@@ -138,7 +138,7 @@ var Game = function() {
         } else {
             return false;
         }
-    }
+    };
     //左移
     var left = function() {
         if (cur.canLeft(isValid)) {
@@ -148,7 +148,7 @@ var Game = function() {
             refreshDiv(gameData, gameDivs);
 
         }
-    }
+    };
     //右移
     var right = function() {
         if (cur.canRight(isValid)) {
@@ -157,7 +157,7 @@ var Game = function() {
             setData();
             refreshDiv(gameData, gameDivs);
         }
-    }
+    };
 
     //使用下一個方塊
     var performNext = function(type, dir) {
@@ -166,7 +166,7 @@ var Game = function() {
         next = SquareFactory.prototype.make(type, dir);
         refreshDiv(gameData, gameDivs);
         refreshDiv(next.data, nextDivs);
-    }
+    };
 
     //初始化
     var init = function(doms, type, dir) {
@@ -181,8 +181,8 @@ var Game = function() {
         initDiv(nextDiv, next.data, nextDivs);
         // setData();
         // refreshDiv(gameData, gameDivs)
-        refreshDiv(next.data, nextDivs)
-    }
+        refreshDiv(next.data, nextDivs);
+    };
 
     //方況移動到底部，給他固定
     var fixed = function() {
@@ -196,7 +196,7 @@ var Game = function() {
             }
         }
         refreshDiv(gameData, gameDivs);
-    }
+    };
 
     //消除一行
     var checkClear = function() {
@@ -223,7 +223,7 @@ var Game = function() {
             }
         }
         return line;
-    }
+    };
     var checkGameOver = function() {
 
         gameOver = false;
@@ -233,11 +233,11 @@ var Game = function() {
             }
         }
         return gameOver;
-    }
+    };
     //設置時間
     var setTime = function(time) {
         timeDiv.innerHTML = time;
-    }
+    };
     //加分
     var addScore = function(line) {
         var s = 0;
@@ -259,7 +259,7 @@ var Game = function() {
         }
         score = score + s;
         scoreDiv.innerHTML = score;
-    }
+    };
 
     //遊戲結束
     var gameOver = function(win) {
@@ -268,7 +268,7 @@ var Game = function() {
         } else {
             resultDiv.innerHTML = '你輸了';
         }
-    }
+    };
 
     //底部攻擊對手,增加一行
     var addTailLines = function(lines) {
@@ -283,7 +283,7 @@ var Game = function() {
             cur.origin.x = 0;
         }
         refreshDiv(gameData, gameDivs);
-    }
+    };
 
 
     //導出API
@@ -302,6 +302,6 @@ var Game = function() {
     this.checkGameOver = checkGameOver;
     this.fall = function() {
         while (down());
-    }
+    };
 
-}
+};
